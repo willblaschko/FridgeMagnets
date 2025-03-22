@@ -2,9 +2,9 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:share_plus/share_plus.dart';
 import '../widgets/magnet.dart';
 import '../models/magnet_model.dart';
 import '../widgets/style_selection.dart';
@@ -112,7 +112,7 @@ class _FridgeDoorState extends State<FridgeDoor> {
       if (imageBytes != null) {
         final File imageFile = File(imagePath);
         await imageFile.writeAsBytes(imageBytes);
-        Share.shareFiles([imagePath], text: magnetTexts.toString());
+        Share.shareXFiles([XFile(imagePath)], text: magnetTexts.toString());
       }
     } catch (onError) {
       print(onError);
